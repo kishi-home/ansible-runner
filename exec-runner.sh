@@ -18,6 +18,7 @@ fi
 echo $SSHKEY | sed -z 's/\\n/\n/g' > /ansible-runner/id_ed25519 && \
 chmod 600 /ansible-runner/id_ed25519
 
+./config.sh remove
 ./config.sh \
     --unattended \
     --url $HOST/$ORGANIZATION \
