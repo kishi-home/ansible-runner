@@ -12,6 +12,8 @@ ENV RUNNER_GROUP=Default
 ENV RUNNER_LABELS="self-hosted,Linux,X64"
 ENV RUNNER_WORKDIR=_work
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt update && \
     apt install -y software-properties-common openssh-client sshpass sudo curl software-properties-common python3-pip && \
     apt-add-repository --yes --update ppa:ansible/ansible && \
