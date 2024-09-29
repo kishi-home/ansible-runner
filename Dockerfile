@@ -24,6 +24,7 @@ RUN pip install \
     --user \
     --no-binary ansible-pylibssh \
     ansible-pylibssh
+RUN ansible-galaxy collection install alliedtelesis.awplus
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # RUN useradd runner && \
