@@ -15,7 +15,7 @@ ENV RUNNER_WORKDIR=_work
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt update && \
-    apt install -y software-properties-common openssh-client sshpass sudo curl software-properties-common python3-pip && \
+    apt install -y software-properties-common openssh-client sshpass sudo curl software-properties-common python3-pip libssh-dev && \
     apt-add-repository --yes --update ppa:ansible/ansible && \
     apt install -y ansible && \
     apt clean
