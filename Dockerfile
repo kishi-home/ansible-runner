@@ -13,10 +13,15 @@ ENV RUNNER_LABELS="self-hosted,Linux,X64"
 ENV RUNNER_WORKDIR=_work
 
 RUN apt update && \
-    apt install -y software-properties-common openssh-client sshpass sudo curl && \
+    apt install -y software-properties-common openssh-client sshpass sudo curl software-properties-common python3-pip && \
     apt-add-repository --yes --update ppa:ansible/ansible && \
     apt install -y ansible && \
     apt clean
+
+RUN pip install \
+    --user \
+    --no-binary ansible-pylibssh \
+    ansible-pylibssh
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # RUN useradd runner && \
